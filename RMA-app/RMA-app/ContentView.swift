@@ -8,17 +8,44 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State var content: String = ""
+    @State var isPresented: Bool = false
+    @State var username: String = ""
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        VStack{
+            HStack {
+                Image(systemName: "gamecontroller.fill")
+                    .foregroundStyle(.pink)
+                    .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                Text("Game Guide")
+                    .font(.title)
+                    .foregroundStyle(.pink)
+                Spacer()
+                if username.isEmpty{
+                    Button(action: {isPresented = true}){
+                        Text("Log in")
+                            .foregroundStyle(.red)
+                    }
+                } else{
+                    Button(action: {username = ""}){
+                        Text("Log out")
+                            .foregroundStyle(.red)
+                    }
+                }
+            }
+            .padding()
+            
+            Spacer()
+                .sheet(isPresented: $isPresented) {
+                    LoginView(username: $username, isPresented: $isPresented)}
+            
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(UserData())
 }
