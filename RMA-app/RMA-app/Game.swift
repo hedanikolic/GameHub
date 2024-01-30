@@ -11,6 +11,8 @@ import UIKit
 struct Game: Identifiable {
     var id = UUID().uuidString
     let gameName: String
-    let img: UIImage?
+    let imgURL: URL
     var isSaved: Bool
+    var image: UIImage? = nil
+
 }

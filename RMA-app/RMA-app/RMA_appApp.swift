@@ -11,6 +11,7 @@ import SwiftUI
 struct RMA_appApp: App {
     
     @StateObject var userData = UserData()
+    @StateObject var gameData = GameData()
     
     var body: some Scene {
         WindowGroup {
@@ -28,6 +29,8 @@ struct RMA_appApp: App {
                         Label("Profile", systemImage: "person")
                     }
             }
+            .environmentObject(gameData)
+            .environmentObject(userData)
         }
     }
 }

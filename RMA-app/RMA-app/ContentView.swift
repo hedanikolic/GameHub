@@ -13,6 +13,10 @@ struct ContentView: View {
     @State var isPresented: Bool = false
     @State var username: String = ""
     
+    
+    @EnvironmentObject var gameData: GameData
+    @EnvironmentObject var userData: UserData
+    
     var body: some View {
         VStack{
             HStack {
@@ -36,9 +40,42 @@ struct ContentView: View {
                 }
             }
             .padding()
-            
+            Text("Stuck on a level? Look it up!")
+                .padding(.top, 100)
+                .padding(.leading)
+                .font(.title2)
+                .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
             Spacer()
-                .sheet(isPresented: $isPresented) {
+
+            NavigationLink(destination: SearchView()) {
+                Text("Search")
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+
+
+            HStack{
+                Text("Or browse popular games")
+                    .padding(.top, 100)
+                    .padding(.leading)
+                    .font(.title3)
+                    .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
+
+                Spacer()
+            }
+            HStack{
+                ForEach($gameData.games){ game in
+                    GameGrid(game: game)
+                }
+                .listStyle(.automatic)
+                .padding()
+            }
+            Spacer()
+                
+            .sheet(isPresented: $isPresented) {
                     LoginView(username: $username, isPresented: $isPresented)}
             
         }
@@ -47,5 +84,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .environmentObject(GameData())
         .environmentObject(UserData())
 }
