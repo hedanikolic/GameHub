@@ -13,7 +13,6 @@ struct ContentView: View {
     @State var isPresented: Bool = false
     @State var username: String = ""
     
-    
     @EnvironmentObject var gameData: GameData
     @EnvironmentObject var userData: UserData
     
@@ -40,47 +39,45 @@ struct ContentView: View {
                 }
             }
             .padding()
-            Text("Stuck on a level? Look it up!")
-                .padding(.top, 100)
-                .padding(.leading)
+            Text("Stuck on a level? Find the answer here!")
+                .padding(.vertical, 50)
                 .font(.title2)
                 .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
-            Spacer()
-
-            NavigationLink(destination: SearchView()) {
-                Text("Search")
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .padding()
-                    .background(Color.blue)
-                    .cornerRadius(10)
-            }
-
-
+            
             HStack{
-                Text("Or browse popular games")
-                    .padding(.top, 100)
+                Text("Browse popular games")
+                    .padding(.bottom)
                     .padding(.leading)
                     .font(.title3)
                     .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
-
+                
                 Spacer()
             }
-            HStack{
-                ForEach($gameData.games){ game in
-                    GameGrid(game: game)
+            ScrollView {
+                LazyVGrid(columns: [
+                    GridItem(.flexible(), spacing: 0),
+                    GridItem(.flexible(), spacing: 0)
+                ], spacing: 30) {
+                    ForEach($gameData.games) { game in
+                        GameGrid(game: game)
+                    }
                 }
-                .listStyle(.automatic)
-                .padding()
-            }
-            Spacer()
+                .listStyle(.plain)
                 
-            .sheet(isPresented: $isPresented) {
-                    LoginView(username: $username, isPresented: $isPresented)}
+            }
             
+            Spacer()
+            Text("or search for the game by name")
+                .padding(.vertical)
+                .multilineTextAlignment(.center)
+                .font(.title3)
+                .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
         }
+        .sheet(isPresented: $isPresented) {
+            LoginView(username: $username, isPresented: $isPresented)}
     }
 }
+
 
 #Preview {
     ContentView()

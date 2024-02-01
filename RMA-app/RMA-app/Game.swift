@@ -13,6 +13,14 @@ struct Game: Identifiable {
     let gameName: String
     let imgURL: URL
     var isSaved: Bool
-    var image: UIImage? = nil
+}
 
+func loadImage(from game: Game) -> UIImage? {
+    do {
+        let imgData = try Data(contentsOf: game.imgURL)
+        return UIImage(data: imgData)
+    } catch {
+        print("Error loading image: \(error)")
+        return nil
+    }
 }
