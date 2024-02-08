@@ -19,8 +19,10 @@ struct SearchView: View {
             return gameData.games
         }
         else {
+            let lowercaseQuery = query.lowercased()
             return gameData.games.filter {game in
-                return game.gameName.contains(query)
+                let lowercaseGameName = game.gameName.lowercased()
+                return lowercaseGameName.contains(lowercaseQuery)
             }
         }
     }

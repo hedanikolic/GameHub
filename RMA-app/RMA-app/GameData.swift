@@ -21,9 +21,9 @@ class GameData: ObservableObject {
     ]
     
     
-    /*func getTweets(inds: [String]) -> [Tweet]{
-        return tweets.filter { tweet in
-            return inds.contains(tweet.id)
+    func getGames(inds: [String]) -> [Game]{
+        return games.filter { game in
+            return inds.contains(game.id)
         }
-    }*/
+    }
 }
