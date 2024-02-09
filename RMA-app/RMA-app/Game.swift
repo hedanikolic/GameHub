@@ -15,7 +15,7 @@ struct Game: Identifiable {
     var isSaved: Bool
 }
 
-func loadImage(from game: Game) -> UIImage? {
+/*func loadImage(from game: Game) -> UIImage? {
     do {
         let imgData = try Data(contentsOf: game.imgURL)
         return UIImage(data: imgData)
@@ -23,4 +23,23 @@ func loadImage(from game: Game) -> UIImage? {
         print("Error loading image: \(error)")
         return nil
     }
+}*/
+func loadImageAsync(from url: URL, completion: @escaping (UIImage?) -> Void) {
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        if let error = error {
+            print("Error loading image: \(error)")
+            completion(nil)
+            return
+        }
+
+        guard let data = data else {
+            completion(nil)
+            return
+        }
+
+        let image = UIImage( data: data)
+        completion(image)
+    }
+
+    task.resume()
 }

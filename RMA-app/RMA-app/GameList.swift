@@ -12,17 +12,12 @@ struct GameList: View {
     
     @Binding var game: Game
     @State private var isGridTapped = false
-
+    @State private var loadedImage: UIImage?
     
-    let imageURL = URL(string: "https://e.snmc.io/lk/lv/x/eea8ccf5129cb92cab07d8fb363be933/8378753")!
-    
-    var loadedImage: UIImage? {
-            loadImage(from: game)
-        }
     
     var body: some View {
         Button(action: {
-                        isGridTapped.toggle()
+            isGridTapped.toggle()
         }) {
             HStack{
                 if let image = loadedImage {
@@ -79,10 +74,14 @@ struct GameList: View {
             }
         }
         .sheet(isPresented: $isGridTapped) {
-                        GameDetailView(game: game)
+            GameDetailView(game: $game)
                     }
         .padding()
-    }
+        .onAppear(perform: {
+            loadImageAsync(from: game.imgURL) { image in
+                        self.loadedImage = image
+                    }
+                })    }
 }
 
 #Preview {

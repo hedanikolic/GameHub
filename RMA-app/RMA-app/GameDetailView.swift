@@ -8,33 +8,74 @@
 import SwiftUI
 
 struct GameDetailView: View {
-    var game: Game
     
-    let imageURL = URL(string: "https://e.snmc.io/lk/lv/x/eea8ccf5129cb92cab07d8fb363be933/8378753")!
-    var loadedImage: UIImage? {
-            loadImage(from: game)
-        }
+    @Binding var game: Game
+    @EnvironmentObject var userData: UserData
+    @EnvironmentObject var levelData: LevelData
+    @State private var loadedImage: UIImage?
+    
     
     var body: some View {
-        HStack{
-            if let image = game.imgURL {
-                Image(uiImage: image)
-                    .resizable()
-                    .frame(width: 80, height: 80)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-            } else {
-                Text("Image Loading Failed")
+        VStack{
+            HStack{
+                if let image = loadedImage {
+                    Image(uiImage: image)
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                } else {
+                    Text("Image Loading Failed")
+                }
+                
+                HStack{
+                    Text(game.gameName)
+                        .font(.title2)
+                        .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
+                        .padding(.trailing)
+                }
+                Button(action: {game.isSaved.toggle()
+                    if game.isSaved {
+                        userData.savedGamesID.append(game.id)
+                    }
+                    else {
+                        if let ind = userData.savedGamesID.firstIndex(of: game.id){
+                            userData.savedGamesID.remove(at: ind)
+                        }
+                    }
+                }) {
+                    if game.isSaved
+                    {Image(systemName: "bookmark.fill")
+                            .foregroundStyle(.pink)
+                            .font(.title2)
+                    } else {Image(systemName: "bookmark")
+                            .foregroundStyle(.pink)
+                            .font(.title2)
+                    }
+                }
+            }
+            .padding()
+            Spacer()
+            
+           List($levelData.levels){ level in
+                GameLevelRow(level: level)
             }
             
-            HStack{
-                Text(game.gameName)
-                    .font(.title3)
-                    .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
-                    .padding(.trailing)
-            }
+            
+            
+            Spacer()
         }
+        .onAppear(perform: {
+            loadImageAsync(from: self.game.imgURL) { image in
+                        self.loadedImage = image
+                    }
+                })
+
     }
+}
 
 #Preview {
-    GameDetailView(game: Game(gameName: "Heavy Rain", imgURL: URL(string: "https://upload.wikimedia.org/wikipedia/en/c/c1/Heavy_Rain_Cover_Art.jpg")!, isSaved: true))
+    GameDetailView(game: Binding.constant(
+        Game(gameName: "The Legend of Zelda: Breath of the Wild", imgURL: URL(string:"https://e.snmc.io/lk/lv/x/eea8ccf5129cb92cab07d8fb363be933/8378753")!, isSaved: true)
+    ))
+    .environmentObject(GameData())
 }

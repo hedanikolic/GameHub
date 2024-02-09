@@ -13,13 +13,9 @@ struct GameGrid: View {
     @Binding var game: Game
     @State private var isGridTapped = false
     @EnvironmentObject var userData: UserData
+    @State private var loadedImage: UIImage?
 
-    let imageURL = URL(string: "https://e.snmc.io/lk/lv/x/eea8ccf5129cb92cab07d8fb363be933/8378753")!
-    
-    var loadedImage: UIImage? {
-            loadImage(from: game)
-        }
-    
+
     var body: some View {
         Button(action: {
                        isGridTapped.toggle()
@@ -63,8 +59,13 @@ struct GameGrid: View {
             }
         }
         .sheet(isPresented: $isGridTapped) {
-                        GameDetailView(game: game)
+            GameDetailView(game: $game)
+        }
+        .onAppear(perform: {
+            loadImageAsync(from: self.game.imgURL) { image in
+                        self.loadedImage = image
                     }
+                })
     }
 }
 
