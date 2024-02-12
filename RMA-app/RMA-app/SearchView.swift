@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchView: View {
     
     @EnvironmentObject var gameData: GameData
-    
+    @EnvironmentObject var levelData: LevelData
     
     @State var query = ""
     
@@ -48,4 +48,5 @@ struct SearchView: View {
 #Preview {
     SearchView()
         .environmentObject(GameData())
+        .environmentObject(LevelData())
 }

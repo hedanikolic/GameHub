@@ -56,11 +56,13 @@ struct GameDetailView: View {
             .padding()
             Spacer()
             
-           List($levelData.levels){ level in
-                GameLevelRow(level: level)
+            ScrollView {
+                LazyVStack {
+                    ForEach(levelData.levels) {level in
+                        GameLevelRow(level: level)
+                    }
+                }
             }
-            
-            
             
             Spacer()
         }
@@ -78,4 +80,5 @@ struct GameDetailView: View {
         Game(gameName: "The Legend of Zelda: Breath of the Wild", imgURL: URL(string:"https://e.snmc.io/lk/lv/x/eea8ccf5129cb92cab07d8fb363be933/8378753")!, isSaved: true)
     ))
     .environmentObject(GameData())
+    .environmentObject(LevelData())
 }

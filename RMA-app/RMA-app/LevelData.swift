@@ -9,8 +9,7 @@ import Foundation
 import Combine
 
 class LevelData: ObservableObject {
-    static let shared = LevelData()
-    private init(){}
+    //static let shared = LevelData()
     
     @Published var levels: [Level] = [
         Level(name: "Level 1: The Forest Trail", content: "The player starts their journey through a dense forest. They must navigate through the winding trails, avoiding obstacles like fallen trees and wild animals."),

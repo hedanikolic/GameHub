@@ -13,6 +13,7 @@ struct GameGrid: View {
     @Binding var game: Game
     @State private var isGridTapped = false
     @EnvironmentObject var userData: UserData
+    //@EnvironmentObject var levelData: LevelData
     @State private var loadedImage: UIImage?
 
 
@@ -60,6 +61,7 @@ struct GameGrid: View {
         }
         .sheet(isPresented: $isGridTapped) {
             GameDetailView(game: $game)
+                .environmentObject(LevelData())
         }
         .onAppear(perform: {
             loadImageAsync(from: self.game.imgURL) { image in
@@ -75,4 +77,5 @@ struct GameGrid: View {
         Game(gameName: "The Legend of Zelda: Breath of the Wild", imgURL: URL(string:"https://e.snmc.io/lk/lv/x/eea8ccf5129cb92cab07d8fb363be933/8378753")!, isSaved: true)
     ))
     .environmentObject(GameData())
+    .environmentObject(LevelData())
 }

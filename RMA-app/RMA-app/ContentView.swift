@@ -15,6 +15,7 @@ struct ContentView: View {
     
     @EnvironmentObject var gameData: GameData
     @EnvironmentObject var userData: UserData
+    @EnvironmentObject var levelData: LevelData
     
     var body: some View {
         VStack{
@@ -83,4 +84,5 @@ struct ContentView: View {
     ContentView()
         .environmentObject(GameData())
         .environmentObject(UserData())
+        .environmentObject(LevelData())
 }

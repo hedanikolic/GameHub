@@ -11,6 +11,7 @@ struct ProfileView: View {
     
     @EnvironmentObject var gameData: GameData
     @EnvironmentObject var userData: UserData
+    @EnvironmentObject var levelData: LevelData
     @State var username: String = ""
     
     var body: some View {
@@ -37,13 +38,7 @@ struct ProfileView: View {
                     .padding()
             }
             .padding()
-            /*Text("My Tweets")
-             List(Binding.constant(gameData.getGames( inds:
-             userData.savedGamesID))){ game in
-             GameGrid(game: game)
-             }
-             .listStyle(.plain)
-             .padding()*/
+            
             HStack{
                 Text("Saved Games")
                     .font(.title2)
@@ -75,4 +70,5 @@ struct ProfileView: View {
     ProfileView()
         .environmentObject(GameData())
         .environmentObject(UserData())
+        .environmentObject(LevelData())
 }
