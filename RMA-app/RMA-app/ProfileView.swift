@@ -27,17 +27,18 @@ struct ProfileView: View {
             }
             .padding()
             
-            HStack{
-                Image(userData.imageName)
+            VStack{
+                Image(systemName: "person.crop.artframe")
                     .resizable()
-                    .frame(width: 55, height: 55)
-                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                    .frame(width: 60, height: 70)
+                    .foregroundStyle(.secondary)
+                    //.clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                 Text(userData.username)
-                    .font(.title2)
+                    .font(.title)
                     .foregroundStyle(.pink)
-                    .padding()
+                    //.padding()
             }
-            .padding()
+            .padding(.vertical, 30)
             
             HStack{
                 Text("Saved Games")

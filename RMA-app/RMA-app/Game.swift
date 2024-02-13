@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Game: Identifiable {
+struct Game: Identifiable, Codable {
     var id = UUID().uuidString
     let gameName: String
     let imgURL: URL

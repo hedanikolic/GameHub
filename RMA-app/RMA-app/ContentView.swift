@@ -41,7 +41,7 @@ struct ContentView: View {
             }
             .padding()
             Text("Stuck on a level? Find the answer here!")
-                .padding(.vertical, 50)
+                .padding(.vertical, 20)
                 .font(.title2)
                 .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
             
