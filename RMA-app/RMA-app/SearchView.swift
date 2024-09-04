@@ -35,10 +35,14 @@ struct SearchView: View {
                 .multilineTextAlignment(.center)
                 .padding()
                 .autocapitalization(/*@START_MENU_TOKEN@*/.none/*@END_MENU_TOKEN@*/)
+                .foregroundColor(.secondary)
             
-            List(Binding.constant(foundGames)){ game in
-                GameList(game: game)
-            }
+            List(foundGames){ game in
+                           // Use index to bind to the specific game in gameData.games
+                           if let index = gameData.games.firstIndex(where: { $0.id == game.id }) {
+                               GameList(game: $gameData.games[index])
+                           }
+                       }
             .listStyle(.plain)
             Spacer()
         }

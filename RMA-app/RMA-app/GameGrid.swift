@@ -49,10 +49,10 @@ struct GameGrid: View {
                     }) {
                         if game.isSaved
                         {Image(systemName: "bookmark.fill")
-                                .foregroundStyle(.pink)
+                                .foregroundStyle(Color.pink.opacity(0.8))
                                 .font(.title2)
                         } else {Image(systemName: "bookmark")
-                                .foregroundStyle(.pink)
+                                .foregroundStyle(Color.pink.opacity(0.8))
                                 .font(.title2)
                         }
                     }

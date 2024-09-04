@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var content: String = ""
+    //@State var content: String = ""
     @State var isPresented: Bool = false
-    @State var username: String = ""
+    //@State var username: String = ""
     
     @EnvironmentObject var gameData: GameData
     @EnvironmentObject var userData: UserData
@@ -21,21 +21,21 @@ struct ContentView: View {
         VStack{
             HStack {
                 Image(systemName: "gamecontroller.fill")
-                    .foregroundStyle(.pink)
+                    .foregroundStyle(Color.pink.opacity(0.8))
                     .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 Text("Game Guide")
                     .font(.title)
-                    .foregroundStyle(.pink)
+                    .foregroundStyle(Color.pink.opacity(0.8))
                 Spacer()
-                if username.isEmpty{
+                if userData.username.isEmpty{
                     Button(action: {isPresented = true}){
                         Text("Log in")
-                            .foregroundStyle(.red)
+                            .foregroundStyle(Color.pink.opacity(0.8))
                     }
                 } else{
-                    Button(action: {username = ""}){
+                    Button(action: {userData.username = ""}){
                         Text("Log out")
-                            .foregroundStyle(.red)
+                            .foregroundStyle(Color.pink.opacity(0.8))
                     }
                 }
             }
@@ -43,14 +43,14 @@ struct ContentView: View {
             Text("Stuck on a level? Find the answer here!")
                 .padding(.vertical, 20)
                 .font(.title2)
-                .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
+                .foregroundColor(.primary)
             
             HStack{
                 Text("Browse popular games")
                     .padding(.bottom)
                     .padding(.leading)
                     .font(.title3)
-                    .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
+                    .foregroundColor(.primary)
                 
                 Spacer()
             }
@@ -72,10 +72,10 @@ struct ContentView: View {
                 .padding(.vertical)
                 .multilineTextAlignment(.center)
                 .font(.title3)
-                .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
+                .foregroundColor(.primary)
         }
         .sheet(isPresented: $isPresented) {
-            LoginView(username: $username, isPresented: $isPresented)}
+            LoginView(username: $userData.username, isPresented: $isPresented)}
     }
 }
 

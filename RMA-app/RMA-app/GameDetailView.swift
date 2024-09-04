@@ -21,7 +21,7 @@ struct GameDetailView: View {
                 if let image = loadedImage {
                     Image(uiImage: image)
                         .resizable()
-                        .frame(width: 80, height: 80)
+                        .frame(width: 100, height: 100)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                 } else {
                     Text("Image Loading Failed")
@@ -29,9 +29,11 @@ struct GameDetailView: View {
                 
                 HStack{
                     Text(game.gameName)
-                        .font(.title2)
-                        .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
-                        .padding(.trailing)
+                        .font(.system(size: 27))
+                        .foregroundColor(.pink)
+                    
+                    Spacer()
+                    
                 }
                 Button(action: {game.isSaved.toggle()
                     if game.isSaved {
@@ -56,11 +58,20 @@ struct GameDetailView: View {
             .padding()
             Spacer()
             
+            HStack{
+                Text("Levels:")
+                    .padding()
+                    .font(.system(size: 25))
+                    .foregroundStyle(.pink)
+                Spacer()
+            }
+            
+            
             ScrollView {
                 LazyVStack {
-                    ForEach(levelData.levels) {level in
-                        GameLevelRow(level: level)
-                    }
+                    ForEach(levelData.levels.filter { $0.gameName == game.gameName }) {level in
+                            GameLevelRow(level: level)
+                        }
                 }
             }
             

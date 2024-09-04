@@ -9,6 +9,7 @@ import Foundation
 
 struct Level: Identifiable{
     var id = UUID().uuidString
+    let gameName : String
     let name: String
     var content: String
 }

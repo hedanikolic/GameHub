@@ -31,22 +31,28 @@ struct GameList: View {
                 HStack{
                     Text(game.gameName)
                         .font(.title3)
-                        .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
+                        .foregroundColor(.secondary)
                         .padding(.trailing)
                     
                     Spacer()
                     
-                    Button(action: {
-                        game.isSaved.toggle() // Toggle isSaved property
-                    }) {
+                    Button(action: {game.isSaved.toggle()
                         if game.isSaved {
-                            Image(systemName: "bookmark.fill")
-                                .foregroundStyle(.pink)
-                                .font(.title)
-                        } else {
-                            Image(systemName: "bookmark")
-                                .foregroundStyle(.pink)
-                                .font(.title)
+                            userData.savedGamesID.append(game.id)
+                        }
+                        else {
+                            if let ind = userData.savedGamesID.firstIndex(of: game.id){
+                                userData.savedGamesID.remove(at: ind)
+                            }
+                        }
+                    }) {
+                        if game.isSaved
+                        {Image(systemName: "bookmark.fill")
+                                .foregroundStyle(Color.pink.opacity(0.8))
+                                .font(.title2)
+                        } else {Image(systemName: "bookmark")
+                                .foregroundStyle(Color.pink.opacity(0.8))
+                                .font(.title2)
                         }
                     }
                 }

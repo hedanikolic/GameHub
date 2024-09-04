@@ -13,6 +13,7 @@ struct Game: Identifiable, Codable {
     let gameName: String
     let imgURL: URL
     var isSaved: Bool
+    //var levels: [Level]
 }
 
 /*func loadImage(from game: Game) -> UIImage? {

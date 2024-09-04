@@ -28,7 +28,9 @@ struct RMA_appApp: App {
                     .tabItem {
                         Label("Profile", systemImage: "person")
                     }
+                    
             }
+            //.environment(\.colorScheme, .light)
             .environmentObject(gameData)
             .environmentObject(userData)
         }

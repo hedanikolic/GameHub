@@ -12,60 +12,88 @@ struct ProfileView: View {
     @EnvironmentObject var gameData: GameData
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var levelData: LevelData
-    @State var username: String = ""
+    //@Binding var username: String
+    @State var isPresented: Bool = false
     
-    var body: some View {
-        VStack{
-            HStack {
-                Image(systemName: "gamecontroller.fill")
-                    .foregroundStyle(.pink)
-                    .font(.title)
-                Text("Game Guide")
-                    .font(.title)
-                    .foregroundStyle(.pink)
-                Spacer()
-            }
-            .padding()
-            
+    var body:some View {
+        GeometryReader{ geometry in
             VStack{
-                Image(systemName: "person.crop.artframe")
-                    .resizable()
-                    .frame(width: 60, height: 70)
-                    .foregroundStyle(.secondary)
-                    //.clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-                Text(userData.username)
-                    .font(.title)
-                    .foregroundStyle(.pink)
-                    //.padding()
-            }
-            .padding(.vertical, 30)
             
-            HStack{
-                Text("Saved Games")
-                    .font(.title2)
-                    .foregroundColor(Color(red: 0.3, green: 0.3, blue: 0.3))
-                    .padding()
-                Spacer()
-            }
-            ScrollView {
-                LazyVGrid(columns: [
-                    GridItem(.flexible(), spacing: 0),
-                    GridItem(.flexible(), spacing: 0)
-                ], spacing: 30) {
-                    ForEach(gameData.getGames(inds: userData.savedGamesID)) { game in
-                        GameGrid(game: .constant(game))
-                    }
+                HStack {
+                    Image(systemName: "gamecontroller.fill")
+                        .foregroundStyle(Color.pink.opacity(0.8))
+                        .font(.title)
+                    Text("Game Guide")
+                        .font(.title)
+                        .foregroundStyle(Color.pink.opacity(0.8))
+                    Spacer()
                 }
                 .padding()
                 
+                VStack{
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .frame(width: 80, height: 80)
+                        .foregroundStyle(.secondary)
+                    //.clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
+                    Text(userData.username)
+                        .font(.title)
+                        .foregroundStyle(Color.pink.opacity(0.8))
+                    //.padding()
+                }
+                .padding(.vertical, 30)
                 
-                Spacer()
-                
-                
+                HStack{
+                    Text("Saved Games")
+                        .font(.title2)
+                        .foregroundColor(.primary)
+                        .padding()
+                    Spacer()
+                }
+                if userData.username.isEmpty{
+                    VStack{
+                        Text("Log in to see saved games!")
+                            .font(.title2)
+                            .foregroundColor(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.bottom, 20)
+                        Button(action: {isPresented = true}){
+                            Text("Log in")
+                                .frame(width: 85, height: 45)
+                                .foregroundColor(.white)
+                                .background(Color.pink.opacity(0.8))
+                            // .border(Color.pink.opacity(0.8))
+                                .cornerRadius(12)
+                                .font(.title2)
+                        }
+                    }
+                }
+                else{
+                    ScrollView {
+                        LazyVGrid(columns: [
+                            GridItem(.flexible(), spacing: 0),
+                            GridItem(.flexible(), spacing: 0)
+                        ], spacing: 30) {
+                            ForEach(gameData.getSavedGamesWithBindings(inds: userData.savedGamesID)) { gameBinding in
+                                GameGrid(game: gameBinding)
+                            }
+                        }
+                        .padding()
+                        
+                        Spacer()
+                    }
+                }
             }
+            .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+            //.background(Color.red.opacity(0.2))
+            //.frame(height: UIScreen.main.bounds.height)
+            .sheet(isPresented: $isPresented) {
+                LoginView(username: $userData.username, isPresented: $isPresented)}
         }
     }
 }
+
+
         
 #Preview {
     ProfileView()
