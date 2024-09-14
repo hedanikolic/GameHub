@@ -13,6 +13,7 @@ struct GameList: View {
     @State private var isGridTapped = false
     @State private var loadedImage: UIImage?
     @EnvironmentObject var userData: UserData
+    @StateObject var gameViewModel = GameViewModel()
 
     var body: some View {
         Button(action: {
@@ -38,9 +39,11 @@ struct GameList: View {
                     
                     Button(action: {game.isSaved.toggle()
                         if game.isSaved {
+                            
                             userData.savedGamesID.append(game.id)
                         }
                         else {
+                            
                             if let ind = userData.savedGamesID.firstIndex(of: game.id){
                                 userData.savedGamesID.remove(at: ind)
                             }

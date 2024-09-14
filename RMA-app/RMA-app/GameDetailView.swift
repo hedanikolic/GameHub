@@ -13,7 +13,7 @@ struct GameDetailView: View {
     @EnvironmentObject var userData: UserData
     @EnvironmentObject var levelData: LevelData
     @State private var loadedImage: UIImage?
-    
+    @StateObject var gameViewModel = GameViewModel()
     
     var body: some View {
         VStack{

@@ -6,9 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct RMA_appApp: App {
+    
+    init() {
+            FirebaseApp.configure()
+        }
     
     @StateObject var userData = UserData()
     @StateObject var gameData = GameData()

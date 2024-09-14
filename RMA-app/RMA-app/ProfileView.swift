@@ -14,6 +14,7 @@ struct ProfileView: View {
     @EnvironmentObject var levelData: LevelData
     //@Binding var username: String
     @State var isPresented: Bool = false
+    @StateObject var gameViewModel = GameViewModel()
     
     var body:some View {
         GeometryReader{ geometry in
@@ -82,6 +83,7 @@ struct ProfileView: View {
                         
                         Spacer()
                     }
+                    
                 }
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)

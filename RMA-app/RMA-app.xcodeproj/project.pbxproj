@@ -23,6 +23,26 @@
 		3F9D43E32B768E460008D6D1 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9D43E22B768E460008D6D1 /* Level.swift */; };
 		3FC3CAAF2B6BB67300D28374 /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC3CAAE2B6BB67300D28374 /* GameList.swift */; };
 		3FE34E892B75518D002AD903 /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE34E882B75518D002AD903 /* GameDetailView.swift */; };
+		8BB5B4642C8ACC2900FF02C6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BB5B44D2C8ACC2900FF02C6 /* Preview Assets.xcassets */; };
+		8BB5B4652C8ACC2900FF02C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BB5B44F2C8ACC2900FF02C6 /* Assets.xcassets */; };
+		8BB5B4662C8ACC2900FF02C6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B4502C8ACC2900FF02C6 /* ContentView.swift */; };
+		8BB5B4672C8ACC2900FF02C6 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B4512C8ACC2900FF02C6 /* Game.swift */; };
+		8BB5B4682C8ACC2900FF02C6 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B4522C8ACC2900FF02C6 /* GameData.swift */; };
+		8BB5B4692C8ACC2900FF02C6 /* GameDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B4532C8ACC2900FF02C6 /* GameDetailView.swift */; };
+		8BB5B46A2C8ACC2900FF02C6 /* GameGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B4542C8ACC2900FF02C6 /* GameGrid.swift */; };
+		8BB5B46B2C8ACC2900FF02C6 /* GameLevelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B4552C8ACC2900FF02C6 /* GameLevelRow.swift */; };
+		8BB5B46C2C8ACC2900FF02C6 /* GameList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B4562C8ACC2900FF02C6 /* GameList.swift */; };
+		8BB5B46D2C8ACC2900FF02C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BB5B4572C8ACC2900FF02C6 /* GoogleService-Info.plist */; };
+		8BB5B46E2C8ACC2900FF02C6 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B4582C8ACC2900FF02C6 /* Level.swift */; };
+		8BB5B46F2C8ACC2900FF02C6 /* LevelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B4592C8ACC2900FF02C6 /* LevelData.swift */; };
+		8BB5B4702C8ACC2900FF02C6 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B45A2C8ACC2900FF02C6 /* LoginView.swift */; };
+		8BB5B4712C8ACC2900FF02C6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B45B2C8ACC2900FF02C6 /* ProfileView.swift */; };
+		8BB5B4722C8ACC2900FF02C6 /* RMA_appApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B45C2C8ACC2900FF02C6 /* RMA_appApp.swift */; };
+		8BB5B4732C8ACC2900FF02C6 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B45D2C8ACC2900FF02C6 /* SearchView.swift */; };
+		8BB5B4742C8ACC2900FF02C6 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B45E2C8ACC2900FF02C6 /* UserData.swift */; };
+		8BB5B4782C8ACF7F00FF02C6 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB5B4772C8ACF7F00FF02C6 /* FirebaseDatabase */; };
+		8BB5B47A2C8ACF8500FF02C6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 8BB5B4792C8ACF8500FF02C6 /* FirebaseFirestore */; };
+		8BB5B47C2C8AD2AD00FF02C6 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB5B47B2C8AD2AD00FF02C6 /* GameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +63,25 @@
 		3F9D43E22B768E460008D6D1 /* Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		3FC3CAAE2B6BB67300D28374 /* GameList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
 		3FE34E882B75518D002AD903 /* GameDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
+		8BB5B44D2C8ACC2900FF02C6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8BB5B44F2C8ACC2900FF02C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8BB5B4502C8ACC2900FF02C6 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8BB5B4512C8ACC2900FF02C6 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		8BB5B4522C8ACC2900FF02C6 /* GameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		8BB5B4532C8ACC2900FF02C6 /* GameDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameDetailView.swift; sourceTree = "<group>"; };
+		8BB5B4542C8ACC2900FF02C6 /* GameGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameGrid.swift; sourceTree = "<group>"; };
+		8BB5B4552C8ACC2900FF02C6 /* GameLevelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLevelRow.swift; sourceTree = "<group>"; };
+		8BB5B4562C8ACC2900FF02C6 /* GameList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameList.swift; sourceTree = "<group>"; };
+		8BB5B4572C8ACC2900FF02C6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8BB5B4582C8ACC2900FF02C6 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
+		8BB5B4592C8ACC2900FF02C6 /* LevelData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelData.swift; sourceTree = "<group>"; };
+		8BB5B45A2C8ACC2900FF02C6 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		8BB5B45B2C8ACC2900FF02C6 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8BB5B45C2C8ACC2900FF02C6 /* RMA_appApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMA_appApp.swift; sourceTree = "<group>"; };
+		8BB5B45D2C8ACC2900FF02C6 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		8BB5B45E2C8ACC2900FF02C6 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		8BB5B4602C8ACC2900FF02C6 /* RMA-app.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "RMA-app.xcodeproj"; sourceTree = "<group>"; };
+		8BB5B47B2C8AD2AD00FF02C6 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB5B4782C8ACF7F00FF02C6 /* FirebaseDatabase in Frameworks */,
+				8BB5B47A2C8ACF8500FF02C6 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				3F7C969A2B5FFD780069D29A /* RMA-app */,
+				8BB5B4612C8ACC2900FF02C6 /* RMA-app */,
 				3F7C96992B5FFD780069D29A /* Products */,
+				8BB5B4762C8ACF7F00FF02C6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +134,7 @@
 				3F9D43DE2B768C7E0008D6D1 /* GameLevelRow.swift */,
 				3F9D43E02B768DBE0008D6D1 /* LevelData.swift */,
 				3F9D43E22B768E460008D6D1 /* Level.swift */,
+				8BB5B47B2C8AD2AD00FF02C6 /* GameViewModel.swift */,
 			);
 			path = "RMA-app";
 			sourceTree = "<group>";
@@ -101,6 +145,59 @@
 				3F7C96A22B5FFD7B0069D29A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8BB5B44E2C8ACC2900FF02C6 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8BB5B44D2C8ACC2900FF02C6 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8BB5B45F2C8ACC2900FF02C6 /* RMA-app */ = {
+			isa = PBXGroup;
+			children = (
+				8BB5B44E2C8ACC2900FF02C6 /* Preview Content */,
+				8BB5B44F2C8ACC2900FF02C6 /* Assets.xcassets */,
+				8BB5B4502C8ACC2900FF02C6 /* ContentView.swift */,
+				8BB5B4512C8ACC2900FF02C6 /* Game.swift */,
+				8BB5B4522C8ACC2900FF02C6 /* GameData.swift */,
+				8BB5B4532C8ACC2900FF02C6 /* GameDetailView.swift */,
+				8BB5B4542C8ACC2900FF02C6 /* GameGrid.swift */,
+				8BB5B4552C8ACC2900FF02C6 /* GameLevelRow.swift */,
+				8BB5B4562C8ACC2900FF02C6 /* GameList.swift */,
+				8BB5B4572C8ACC2900FF02C6 /* GoogleService-Info.plist */,
+				8BB5B4582C8ACC2900FF02C6 /* Level.swift */,
+				8BB5B4592C8ACC2900FF02C6 /* LevelData.swift */,
+				8BB5B45A2C8ACC2900FF02C6 /* LoginView.swift */,
+				8BB5B45B2C8ACC2900FF02C6 /* ProfileView.swift */,
+				8BB5B45C2C8ACC2900FF02C6 /* RMA_appApp.swift */,
+				8BB5B45D2C8ACC2900FF02C6 /* SearchView.swift */,
+				8BB5B45E2C8ACC2900FF02C6 /* UserData.swift */,
+			);
+			path = "RMA-app";
+			sourceTree = "<group>";
+		};
+		8BB5B4612C8ACC2900FF02C6 /* RMA-app */ = {
+			isa = PBXGroup;
+			children = (
+				8BB5B45F2C8ACC2900FF02C6 /* RMA-app */,
+				8BB5B4602C8ACC2900FF02C6 /* RMA-app.xcodeproj */,
+			);
+			name = "RMA-app";
+			sourceTree = "<group>";
+		};
+		8BB5B4622C8ACC2900FF02C6 /* Products */ = {
+			isa = PBXGroup;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8BB5B4762C8ACF7F00FF02C6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,6 +216,10 @@
 			dependencies = (
 			);
 			name = "RMA-app";
+			packageProductDependencies = (
+				8BB5B4772C8ACF7F00FF02C6 /* FirebaseDatabase */,
+				8BB5B4792C8ACF8500FF02C6 /* FirebaseFirestore */,
+			);
 			productName = "RMA-app";
 			productReference = 3F7C96982B5FFD780069D29A /* RMA-app.app */;
 			productType = "com.apple.product-type.application";
@@ -147,8 +248,17 @@
 				Base,
 			);
 			mainGroup = 3F7C968F2B5FFD780069D29A;
+			packageReferences = (
+				8BB5B4752C8ACEB000FF02C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 3F7C96992B5FFD780069D29A /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8BB5B4622C8ACC2900FF02C6 /* Products */;
+					ProjectRef = 8BB5B4602C8ACC2900FF02C6 /* RMA-app.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3F7C96972B5FFD780069D29A /* RMA-app */,
@@ -162,6 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F7C96A32B5FFD7B0069D29A /* Preview Assets.xcassets in Resources */,
+				8BB5B4642C8ACC2900FF02C6 /* Preview Assets.xcassets in Resources */,
+				8BB5B46D2C8ACC2900FF02C6 /* GoogleService-Info.plist in Resources */,
+				8BB5B4652C8ACC2900FF02C6 /* Assets.xcassets in Resources */,
 				3F7C96A02B5FFD7B0069D29A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -175,18 +288,33 @@
 			files = (
 				3F7C96AA2B60129F0069D29A /* UserData.swift in Sources */,
 				3F7C969E2B5FFD780069D29A /* ContentView.swift in Sources */,
+				8BB5B4742C8ACC2900FF02C6 /* UserData.swift in Sources */,
+				8BB5B47C2C8AD2AD00FF02C6 /* GameViewModel.swift in Sources */,
 				3F7C96AE2B6018DB0069D29A /* ProfileView.swift in Sources */,
+				8BB5B46B2C8ACC2900FF02C6 /* GameLevelRow.swift in Sources */,
 				3F9D43E12B768DBE0008D6D1 /* LevelData.swift in Sources */,
 				3F7C96AC2B6014530069D29A /* LoginView.swift in Sources */,
+				8BB5B4702C8ACC2900FF02C6 /* LoginView.swift in Sources */,
+				8BB5B4712C8ACC2900FF02C6 /* ProfileView.swift in Sources */,
 				3F7C96B22B601C0C0069D29A /* GameData.swift in Sources */,
+				8BB5B4682C8ACC2900FF02C6 /* GameData.swift in Sources */,
+				8BB5B4722C8ACC2900FF02C6 /* RMA_appApp.swift in Sources */,
 				3F7C96B02B6018EB0069D29A /* SearchView.swift in Sources */,
 				3F7C96B62B601D880069D29A /* GameGrid.swift in Sources */,
 				3F9D43E32B768E460008D6D1 /* Level.swift in Sources */,
 				3FC3CAAF2B6BB67300D28374 /* GameList.swift in Sources */,
+				8BB5B46E2C8ACC2900FF02C6 /* Level.swift in Sources */,
+				8BB5B46F2C8ACC2900FF02C6 /* LevelData.swift in Sources */,
 				3F7C969C2B5FFD780069D29A /* RMA_appApp.swift in Sources */,
+				8BB5B4662C8ACC2900FF02C6 /* ContentView.swift in Sources */,
+				8BB5B4732C8ACC2900FF02C6 /* SearchView.swift in Sources */,
 				3FE34E892B75518D002AD903 /* GameDetailView.swift in Sources */,
+				8BB5B46A2C8ACC2900FF02C6 /* GameGrid.swift in Sources */,
 				3F7C96B42B601C7B0069D29A /* Game.swift in Sources */,
+				8BB5B4692C8ACC2900FF02C6 /* GameDetailView.swift in Sources */,
 				3F9D43DF2B768C7E0008D6D1 /* GameLevelRow.swift in Sources */,
+				8BB5B46C2C8ACC2900FF02C6 /* GameList.swift in Sources */,
+				8BB5B4672C8ACC2900FF02C6 /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +520,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8BB5B4752C8ACEB000FF02C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8BB5B4772C8ACF7F00FF02C6 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BB5B4752C8ACEB000FF02C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		8BB5B4792C8ACF8500FF02C6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8BB5B4752C8ACEB000FF02C6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3F7C96902B5FFD780069D29A /* Project object */;
 }
