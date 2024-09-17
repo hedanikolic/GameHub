@@ -76,6 +76,7 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isPresented) {
             LoginView(username: $userData.username, isPresented: $isPresented)}
+        
     }
 }
 

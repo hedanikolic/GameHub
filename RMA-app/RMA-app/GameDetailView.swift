@@ -35,7 +35,32 @@ struct GameDetailView: View {
                     Spacer()
                     
                 }
-                Button(action: {game.isSaved.toggle()
+                // Saving games into Firebase
+                
+                Button(action: {
+                    guard !userData.username.isEmpty else {
+                            print("User is not logged in. Bookmarking is disabled.")
+                            return // Prevent action if not logged in
+                        }
+                    game.isSaved.toggle()
+                    if game.isSaved {
+                        gameViewModel.bookmarkGame(gameID: game.id, gameName: game.gameName, forUser: userData.username)
+                        userData.savedGamesID.append(game.id)
+                    } else {
+                        gameViewModel.removeBookmarkedGame(gameID: game.id, forUser: userData.username)
+                        if let ind = userData.savedGamesID.firstIndex(of: game.id) {
+                            userData.savedGamesID.remove(at: ind)
+                        }
+                    }
+                }) {
+                    Image(systemName: game.isSaved ? "bookmark.fill" : "bookmark")
+                        .foregroundStyle(Color.pink.opacity(0.8))
+                        .font(.title2)
+                }
+
+                
+                
+                /*Button(action: {game.isSaved.toggle()
                     if game.isSaved {
                         userData.savedGamesID.append(game.id)
                     }
@@ -53,7 +78,7 @@ struct GameDetailView: View {
                             .foregroundStyle(.pink)
                             .font(.title2)
                     }
-                }
+                }*/
             }
             .padding()
             Spacer()

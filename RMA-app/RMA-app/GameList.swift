@@ -37,7 +37,37 @@ struct GameList: View {
                     
                     Spacer()
                     
-                    Button(action: {game.isSaved.toggle()
+                    
+                    //Saving into Firebase
+                    Button(action: {
+                        guard !userData.username.isEmpty else {
+                                print("User is not logged in. Bookmarking is disabled.")
+                                return // Prevent action if not logged in
+                            }
+                        game.isSaved.toggle()
+                        if game.isSaved {
+                            gameViewModel.bookmarkGame(gameID: game.id, gameName: game.gameName, forUser: userData.username)
+                            userData.savedGamesID.append(game.id)
+                        } else {
+                            gameViewModel.removeBookmarkedGame(gameID: game.id, forUser: userData.username)
+                            if let ind = userData.savedGamesID.firstIndex(of: game.id) {
+                                userData.savedGamesID.remove(at: ind)
+                            }
+                        }
+                    }) {
+                        if game.isSaved && !userData.username.isEmpty
+                        {Image(systemName: "bookmark.fill")
+                                .foregroundStyle(Color.pink.opacity(0.8))
+                                .font(.title2)
+                        } else {Image(systemName: "bookmark")
+                                .foregroundStyle(Color.pink.opacity(0.8))
+                                .font(.title2)
+                        }
+                    }
+
+                    
+                    
+                    /*Button(action: {game.isSaved.toggle()
                         if game.isSaved {
                             
                             userData.savedGamesID.append(game.id)
@@ -57,7 +87,7 @@ struct GameList: View {
                                 .foregroundStyle(Color.pink.opacity(0.8))
                                 .font(.title2)
                         }
-                    }
+                    } */
                 }
             }
         }

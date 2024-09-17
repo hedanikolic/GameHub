@@ -75,18 +75,30 @@ struct ProfileView: View {
                             GridItem(.flexible(), spacing: 0),
                             GridItem(.flexible(), spacing: 0)
                         ], spacing: 30) {
-                            ForEach(gameData.getSavedGamesWithBindings(inds: userData.savedGamesID)) { gameBinding in
-                                GameGrid(game: gameBinding)
+                            ForEach(gameData.games.filter { $0.isSaved }, id: \.id) { game in
+                                GameGrid(game: .constant(game))
                             }
                         }
                         .padding()
                         
                         Spacer()
                     }
-                    
+                    .onAppear {
+                        if !userData.username.isEmpty {
+                            gameViewModel.loadSavedGames(forUser: userData.username) { savedGames in
+                                userData.savedGamesID = savedGames
+                                gameData.markGamesAsSaved(savedGames) // Mark games as saved
+                                for game in gameData.games {
+                                                print("\(game.gameName) saved status: \(game.isSaved)")
+                                            }
+                            }
+                        }
+                    }
                 }
+                
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+            
             //.background(Color.red.opacity(0.2))
             //.frame(height: UIScreen.main.bounds.height)
             .sheet(isPresented: $isPresented) {

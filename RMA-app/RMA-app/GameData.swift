@@ -22,7 +22,13 @@ class GameData: ObservableObject {
         Game(gameName: "The Last of Us: Part I", imgURL: URL(string: "https://www.truetrophies.com/boxart/Game_17496.jpg")!, isSaved: false)
         
     ]
-    
+    func markGamesAsSaved(_ savedGameIDs: [String]) {
+            for gameID in savedGameIDs {
+                if let index = games.firstIndex(where: { $0.id == gameID }) {
+                    games[index].isSaved = true
+                }
+            }
+        }
     
     func getGames(inds: [String]) -> [Game]{
         return games.filter { game in
