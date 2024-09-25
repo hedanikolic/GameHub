@@ -17,6 +17,7 @@ struct RMA_appApp: App {
     
     @StateObject var userData = UserData()
     @StateObject var gameData = GameData()
+    @StateObject var gameViewModel = GameViewModel()
     
     var body: some Scene {
         WindowGroup {
@@ -38,6 +39,7 @@ struct RMA_appApp: App {
             //.environment(\.colorScheme, .light)
             .environmentObject(gameData)
             .environmentObject(userData)
+            .environmentObject(gameViewModel)
         }
     }
 }

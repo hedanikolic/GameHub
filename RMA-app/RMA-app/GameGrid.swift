@@ -41,10 +41,6 @@ struct GameGrid: View {
                     
                     //Firebase
                     Button(action: {
-                        guard !userData.username.isEmpty else {
-                                print("User is not logged in. Bookmarking is disabled.")
-                                return // Prevent action if not logged in
-                            }
                         print("Bookmark button tapped")
                         game.isSaved.toggle()
                         if game.isSaved {
@@ -58,13 +54,14 @@ struct GameGrid: View {
                         }
                     }) {
                         if game.isSaved && !userData.username.isEmpty
-                        {Image(systemName: "bookmark.fill")
-                                .foregroundStyle(Color.pink.opacity(0.8))
-                                .font(.title2)
-                        } else {Image(systemName: "bookmark")
-                                .foregroundStyle(Color.pink.opacity(0.8))
-                                .font(.title2)
-                        }
+                                                {Image(systemName: "bookmark.fill")
+                                                        .foregroundStyle(Color.pink.opacity(0.8))
+                                                        .font(.title2)
+                                                } else {Image(systemName: "bookmark")
+                                                        .foregroundStyle(Color.pink.opacity(0.8))
+                                                        .font(.title2)
+                                                }
+                                            }
                     }
 
                     
@@ -91,7 +88,7 @@ struct GameGrid: View {
                     }*/
                 }
             }
-        }
+        
         .sheet(isPresented: $isGridTapped) {
             GameDetailView(game: $game)
                 .environmentObject(LevelData())

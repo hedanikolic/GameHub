@@ -81,9 +81,3 @@ struct ContentView: View {
 }
 
 
-#Preview {
-    ContentView()
-        .environmentObject(GameData())
-        .environmentObject(UserData())
-        .environmentObject(LevelData())
-}

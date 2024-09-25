@@ -22,13 +22,24 @@ class GameData: ObservableObject {
         Game(gameName: "The Last of Us: Part I", imgURL: URL(string: "https://www.truetrophies.com/boxart/Game_17496.jpg")!, isSaved: false)
         
     ]
+    
     func markGamesAsSaved(_ savedGameIDs: [String]) {
-            for gameID in savedGameIDs {
-                if let index = games.firstIndex(where: { $0.id == gameID }) {
-                    games[index].isSaved = true
-                }
+        // Reset all games' isSaved state before marking
+        for index in games.indices {
+            games[index].isSaved = false
+        }
+
+        // Mark only the games that belong to the current user
+        for gameID in savedGameIDs {
+            if let index = games.firstIndex(where: { $0.id == gameID }) {
+                games[index].isSaved = true
+                print("Marked as saved: \(games[index].gameName)")
+            } else {
+                print("Game not found for ID: \(gameID)")
             }
         }
+    }
+
     
     func getGames(inds: [String]) -> [Game]{
         return games.filter { game in

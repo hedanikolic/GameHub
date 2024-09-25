@@ -13,6 +13,9 @@ struct LoginView: View {
     //@EnvironmentObject var userData: UserData
     @Binding var username: String
     @Binding var isPresented: Bool
+    @EnvironmentObject var gameViewModel: GameViewModel
+    @EnvironmentObject var userData: UserData
+    @EnvironmentObject var gameData: GameData
     
     var body: some View {
         VStack{
@@ -28,7 +31,14 @@ struct LoginView: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom, 15)
             
-            Button(action: {isPresented = false}){
+            Button(action: {
+                isPresented = false
+                
+                gameViewModel.loadSavedGames(forUser: username) { savedGames in
+                        userData.savedGamesID = savedGames
+                        gameData.markGamesAsSaved(savedGames) // Mark games as saved
+                    }
+            }){
                 Text("Log In")
             }
             .frame(width: 75, height: 40)

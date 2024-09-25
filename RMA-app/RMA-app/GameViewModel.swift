@@ -16,8 +16,11 @@ class GameViewModel: ObservableObject {
     func sanitizeUsername(_ username: String) -> String? {
         let invalidCharacters = CharacterSet(charactersIn: ".#$[]")
         let sanitizedUsername = username.components(separatedBy: invalidCharacters).joined(separator: "_")
-        return sanitizedUsername.isEmpty ? nil : sanitizedUsername
+        
+        return sanitizedUsername.isEmpty ? nil : sanitizedUsername // Ensure username isn't empty after sanitization
     }
+
+
 
 
 
@@ -39,6 +42,8 @@ class GameViewModel: ObservableObject {
         }
     }
 
+    
+    
     // Function to remove un-bookmarked game from Firebase Realtime Database
     func removeBookmarkedGame(gameID: String, forUser username: String) {
         guard let sanitizedUsername = sanitizeUsername(username) else {
@@ -56,14 +61,16 @@ class GameViewModel: ObservableObject {
 
     // Function to load saved games from Firebase Realtime Database
     func loadSavedGames(forUser username: String, completion: @escaping ([String]) -> Void) {
+        print("Original username passed to loadSavedGames: \(username)")  // Log the username before sanitization
+        
         guard let sanitizedUsername = sanitizeUsername(username) else {
             print("Error: Invalid or empty username.")
             completion([])  // Return an empty list if username is invalid
             return
         }
-
+        
         print("Loading saved games for user: \(sanitizedUsername)")
-
+        
         ref.child("users").child(sanitizedUsername).child("savedGames").observeSingleEvent(of: .value) { snapshot in
             var games: [String] = []
             print("Snapshot found: \(snapshot.exists())")  // Check if snapshot exists
