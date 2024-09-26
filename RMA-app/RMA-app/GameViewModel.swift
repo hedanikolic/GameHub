@@ -11,6 +11,55 @@ import Combine
 
 class GameViewModel: ObservableObject {
     private let ref = Database.database().reference()
+    
+    
+    // Function to check if the username already exists
+        func checkUsernameExists(username: String, completion: @escaping (Bool) -> Void) {
+            ref.child("users").child(username).observeSingleEvent(of: .value) { snapshot in
+                if snapshot.exists() {
+                    completion(true)  // Username already exists
+                } else {
+                    completion(false) // Username doesn't exist
+                }
+            }
+        }
+
+        // Function to register a new user in Firebase
+    func registerUser(username: String, password: String, completion: @escaping (Bool) -> Void) {
+        checkUsernameExists(username: username) { exists in
+            if exists {
+                completion(false)  // Username is already taken
+            } else {
+                // Save new user to Firebase
+                let userData = ["username": username, "password": password]
+                self.ref.child("users").child(username).setValue(userData) { error, _ in
+                    if let error = error {
+                        print("Error registering user: \(error.localizedDescription)")
+                        completion(false)
+                    } else {
+                        print("User registered successfully!")
+                        completion(true)
+                    }
+                }
+            }
+        }
+    }
+    
+    // Check if username and password match
+        func validateUser(username: String, password: String, completion: @escaping (Bool, String?) -> Void) {
+            ref.child("users").child(username).observeSingleEvent(of: .value) { snapshot in
+                if let userData = snapshot.value as? [String: Any],
+                   let storedPassword = userData["password"] as? String {
+                    if storedPassword == password {
+                        completion(true, nil)  // Login successful
+                    } else {
+                        completion(false, "Wrong password.")  // Password doesn't match
+                    }
+                } else {
+                    completion(false, "User not found.")  // Username doesn't exist
+                }
+            }
+        }
 
     // Helper function to sanitize the username
     func sanitizeUsername(_ username: String) -> String? {
@@ -19,9 +68,6 @@ class GameViewModel: ObservableObject {
         
         return sanitizedUsername.isEmpty ? nil : sanitizedUsername // Ensure username isn't empty after sanitization
     }
-
-
-
 
 
     // Function to save bookmarked game to Firebase Realtime Database

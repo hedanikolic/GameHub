@@ -82,7 +82,7 @@ struct ProfileView: View {
             }
             .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
             .sheet(isPresented: $isPresented) {
-                LoginView(username: $userData.username, isPresented: $isPresented)
+                LoginView(username: $userData.username, password: $userData.password, isPresented: $isPresented)
             }
         }
     }

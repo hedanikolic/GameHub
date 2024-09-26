@@ -10,5 +10,6 @@ import Combine
 
 class UserData: ObservableObject{
     @Published var username = ""
+    @Published var password = ""
     @Published var savedGamesID: [String] = []
 }

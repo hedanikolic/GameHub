@@ -33,7 +33,7 @@ struct ContentView: View {
                             .foregroundStyle(Color.pink.opacity(0.8))
                     }
                 } else{
-                    Button(action: {userData.username = ""}){
+                    Button(action: {userData.username = ""; userData.password = ""}){
                         Text("Log out")
                             .foregroundStyle(Color.pink.opacity(0.8))
                     }
@@ -75,7 +75,7 @@ struct ContentView: View {
                 .foregroundColor(.primary)
         }
         .sheet(isPresented: $isPresented) {
-            LoginView(username: $userData.username, isPresented: $isPresented)}
+            LoginView(username: $userData.username, password: $userData.password, isPresented: $isPresented)}
         
     }
 }
