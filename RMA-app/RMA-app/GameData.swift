@@ -98,5 +98,11 @@ class GameData: ObservableObject {
             }
         }
     
+    func clearSavedGames() {
+            for index in games.indices {
+                games[index].isSaved = false
+            }
+        }
+    
 }
 

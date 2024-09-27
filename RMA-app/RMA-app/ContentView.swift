@@ -33,7 +33,8 @@ struct ContentView: View {
                             .foregroundStyle(Color.pink.opacity(0.8))
                     }
                 } else{
-                    Button(action: {userData.username = ""; userData.password = ""}){
+                    Button(action: {userData.username = ""; userData.password = "";userData.savedGamesID.removeAll();
+                        gameData.clearSavedGames() }){
                         Text("Log out")
                             .foregroundStyle(Color.pink.opacity(0.8))
                     }

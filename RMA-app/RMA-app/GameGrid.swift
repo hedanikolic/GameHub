@@ -42,6 +42,11 @@ struct GameGrid: View {
                     //Firebase
                     Button(action: {
                         print("Bookmark button tapped")
+                        guard !userData.username.isEmpty else {
+                                print("No user logged in")
+                                return
+                            }
+
                         game.isSaved.toggle()
                         if game.isSaved {
                             gameViewModel.bookmarkGame(gameID: game.id, gameName: game.gameName, forUser: userData.username)
